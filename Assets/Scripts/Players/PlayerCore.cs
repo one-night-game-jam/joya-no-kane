@@ -28,8 +28,7 @@ namespace Players
         public IObservable<Vector3> MoveDirectionAsObservable()
         {
             return input.MoveDirectionAsObservable()
-                .TakeUntil(isDeadSubject.Skip(1))
-                .Select(x => x.normalized);
+                .TakeUntil(isDeadSubject.Skip(1));
         }
     }
 }
