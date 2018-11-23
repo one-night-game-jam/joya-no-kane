@@ -1,6 +1,7 @@
 ﻿using System;
 using UniRx;
 using UnityEngine;
+using Zenject;
 
 namespace Players
 {
@@ -16,6 +17,10 @@ namespace Players
         void IHittable.Hit()
         {
             isDeadSubject.OnNext(true);
+        }
+
+        public class Factory : Factory<KaneBehaviour>
+        {
         }
     }
 }

@@ -14,10 +14,12 @@ namespace GameManagers
         [SerializeField] private AudioSource audioSource;
 
         [Inject]
-        private void Init(List<KaneBehaviour> kanes)
+        KaneSpawner kaneSpawner;
+
+        void Start()
         {
-            kanes.Select(k => k.IsDeadAsObservable())
-                .Merge()
+            kaneSpawner.Spawned
+                .SelectMany(x => x.Select(k => k.IsDeadAsObservable()).Merge())
                 .Where(x => x)
                 .Subscribe(_ =>
                 {

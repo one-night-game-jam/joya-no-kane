@@ -13,14 +13,15 @@ namespace GameManagers
     public class TimeCounter : MonoBehaviour
     {
         public IObservable<float> TimeCountAsObseravble() { return timeCount; }
-        private IObservable<float> timeCount;
+        readonly ISubject<float> timeCount = new ReplaySubject<float>();
 
         [Inject]
-        private void Init(List<KaneBehaviour> kanes)
+        KaneSpawner kaneSpawner;
+
+        void Start()
         {
-            timeCount = kanes
-                .Select(k => k.IsDeadAsObservable())
-                .Merge()
+            kaneSpawner.Spawned
+                .SelectMany(x => x.Select(k => k.IsDeadAsObservable()).Merge())
                 .Where(x => x)
                 .First()
                 .Select(_ => Time.time)
@@ -30,7 +31,8 @@ namespace GameManagers
                         .UpdateAsObservable()
                         .Select(_ => Time.time - beginTime);
                 })
-                .Share();
+                .Subscribe(timeCount.OnNext)
+                .AddTo(this);
         }
     }
 
