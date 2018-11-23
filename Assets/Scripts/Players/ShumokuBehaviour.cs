@@ -10,14 +10,18 @@ namespace Players
 {
     public class ShumokuBehaviour : MonoBehaviour
     {
+        [SerializeField]
+        private PlayerCore core;
+
         [SerializeField] float lifeReduction;
         private FloatReactiveProperty _life = new FloatReactiveProperty(1.0F);
         public IObservable<float> life => _life;
 
-        public IObservable<Unit> Dead => life
-                .Where(x => x == 0)
-                .First()
-                .AsUnitObservable();
+        public IObservable<Unit> Dead => core
+            .IsDeadAsObservable()
+            .Where(x => x)
+            .First()
+            .AsUnitObservable();
 
         [Inject]
         KaneSpawner kaneSpawner;
@@ -28,6 +32,9 @@ namespace Players
                 .SelectMany(_ => this.UpdateAsObservable())
                 .Subscribe(_ => { UpdateLife(); })
                 .AddTo(this);
+
+            life.Where(x => x == 0)
+                .Subscribe(_ => core.Die());
         }
 
         void OnTriggerEnter(Collider other)
