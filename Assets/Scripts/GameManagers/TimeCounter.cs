@@ -26,10 +26,7 @@ namespace GameManagers
                 .Where(x => x == 0)
                 .First();
 
-            kaneSpawner.Spawned
-                .SelectMany(x => x.Select(k => k.IsDeadAsObservable()).Merge())
-                .Where(x => x)
-                .First()
+            kaneSpawner.KaneDeadFirst
                 .Select(_ => Time.time)
                 .SelectMany(beginTime =>
                 {

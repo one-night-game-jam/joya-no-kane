@@ -15,10 +15,7 @@ namespace UI
 
         void Start()
         {
-            kaneSpawner.Spawned
-                .SelectMany(x => x.Select(k => k.IsDeadAsObservable()).Merge())
-                .Where(x => x)
-                .First()
+            kaneSpawner.KaneDeadFirst
                 .Subscribe(_ => gameObject.SetActive(false))
                 .AddTo(this);
         }

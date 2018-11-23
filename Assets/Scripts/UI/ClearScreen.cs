@@ -15,9 +15,7 @@ namespace UI
         {
             gameObject.SetActive(false);
 
-            kaneCounter.KaneCountAsObseravble()
-                .Where(x => x == 0)
-                .First()
+            kaneCounter.NoRemainingKane
                 .Subscribe(_ => gameObject.SetActive(true))
                 .AddTo(this);
         }

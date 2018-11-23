@@ -15,9 +15,7 @@ namespace UI
         {
             gameObject.SetActive(false);
 
-            shumoku.life
-                .Where(x => x == 0)
-                .First()
+            shumoku.Dead
                 .Subscribe(_ => gameObject.SetActive(true))
                 .AddTo(this);
         }

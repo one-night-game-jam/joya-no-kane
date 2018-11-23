@@ -14,15 +14,17 @@ namespace Players
         private FloatReactiveProperty _life = new FloatReactiveProperty(1.0F);
         public IObservable<float> life => _life;
 
+        public IObservable<Unit> Dead => life
+                .Where(x => x == 0)
+                .First()
+                .AsUnitObservable();
+
         [Inject]
         KaneSpawner kaneSpawner;
 
         void Start()
         {
-            kaneSpawner.Spawned
-                .SelectMany(x => x.Select(k => k.IsDeadAsObservable()).Merge())
-                .Where(x => x)
-                .First()
+            kaneSpawner.KaneDeadFirst
                 .SelectMany(_ => this.UpdateAsObservable())
                 .Subscribe(_ => { UpdateLife(); })
                 .AddTo(this);

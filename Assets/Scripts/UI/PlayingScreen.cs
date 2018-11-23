@@ -19,22 +19,15 @@ namespace UI
         {
             gameObject.SetActive(false);
 
-            kaneSpawner.Spawned
-                .SelectMany(x => x.Select(k => k.IsDeadAsObservable()).Merge())
-                .Where(x => x)
-                .First()
+            kaneSpawner.KaneDeadFirst
                 .Subscribe(_ => gameObject.SetActive(true))
                 .AddTo(this);
 
-            kaneCounter.KaneCountAsObseravble()
-                .Where(x => x == 0)
-                .First()
+            kaneCounter.NoRemainingKane
                 .Subscribe(_ => gameObject.SetActive(false))
                 .AddTo(this);
 
-            shumoku.life
-                .Where(x => x == 0)
-                .First()
+            shumoku.Dead
                 .Subscribe(_ => gameObject.SetActive(false))
                 .AddTo(this);
         }
