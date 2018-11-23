@@ -113,29 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: c78362e2ea10948b5b6533a01558029d, type: 2}
---- !u!1 &70851135 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1920026094312324, guid: f780dfcdaf31a457d9cc71a5bf605fac,
-    type: 2}
-  m_PrefabInternal: {fileID: 1407101003}
---- !u!114 &70851137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 70851135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8b8c7be7303c4683a733ca2b2a26d76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kaneCountText: {fileID: 70851138}
---- !u!114 &70851138 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114290488272123288, guid: f780dfcdaf31a457d9cc71a5bf605fac,
-    type: 2}
-  m_PrefabInternal: {fileID: 1407101003}
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,28 +901,31 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114290488272123288, guid: f780dfcdaf31a457d9cc71a5bf605fac,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114290488272123288, guid: f780dfcdaf31a457d9cc71a5bf605fac,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114664559887664780, guid: f780dfcdaf31a457d9cc71a5bf605fac,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114664559887664780, guid: f780dfcdaf31a457d9cc71a5bf605fac,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114306718928855602, guid: f780dfcdaf31a457d9cc71a5bf605fac, type: 2}
+    - target: {fileID: 114290488272123288, guid: f780dfcdaf31a457d9cc71a5bf605fac,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114290488272123288, guid: f780dfcdaf31a457d9cc71a5bf605fac,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108415318299634, guid: f780dfcdaf31a457d9cc71a5bf605fac, type: 2}
+      propertyPath: m_Name
+      value: Bar
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f780dfcdaf31a457d9cc71a5bf605fac, type: 2}
   m_IsPrefabAsset: 0
 --- !u!224 &1407101004 stripped
@@ -1109,6 +1089,23 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fa493ffa3543446eada7df708109ece, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1864099240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1108415318299634, guid: f780dfcdaf31a457d9cc71a5bf605fac,
+    type: 2}
+  m_PrefabInternal: {fileID: 1407101003}
+--- !u!114 &1864099244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1864099240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f13fa89f60f14a82993c8a19001049b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeBar: {fileID: 1864099240}
 --- !u!1001 &1927864804
 Prefab:
   m_ObjectHideFlags: 0
@@ -1147,10 +1144,6 @@ Prefab:
     - target: {fileID: 4192863461728234, guid: 52a84047695024ae883c9f44142086bd, type: 2}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1791013718545366, guid: 52a84047695024ae883c9f44142086bd, type: 2}
-      propertyPath: m_Name
-      value: KaneCounter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52a84047695024ae883c9f44142086bd, type: 2}
