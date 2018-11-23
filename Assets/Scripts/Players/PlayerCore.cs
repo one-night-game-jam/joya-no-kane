@@ -6,6 +6,18 @@ namespace Players
 {
     public class PlayerCore : MonoBehaviour
     {
+        private ISubject<bool> isDeadSubject = new BehaviorSubject<bool>(false);
+
+        public IObservable<bool> IsDeadAsObservable()
+        {
+            return isDeadSubject;
+        }
+
+        public void Die()
+        {
+            isDeadSubject.OnNext(true);
+        }
+
         IInputEventProvider input;
 
         void Awake()
@@ -16,6 +28,7 @@ namespace Players
         public IObservable<Vector3> MoveDirectionAsObservable()
         {
             return input.MoveDirectionAsObservable()
+                .TakeUntil(isDeadSubject.Skip(1))
                 .Select(x => x.normalized);
         }
     }

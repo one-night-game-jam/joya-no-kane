@@ -21,8 +21,9 @@ GameObject:
   - component: {fileID: 224038623634066356}
   - component: {fileID: 222577192391286436}
   - component: {fileID: 114139859919426196}
+  - component: {fileID: 114359870065603416}
   m_Layer: 5
-  m_Name: Gauge
+  m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,6 +55,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224059109540790802}
+  - component: {fileID: 114141649272528894}
   m_Layer: 5
   m_Name: Playing
   m_TagString: Untagged
@@ -121,6 +123,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114141649272528894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1510031083859508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d56f55fb8ea4274b1b57740ed287ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114222777367655788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -259,6 +272,18 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &114359870065603416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1108415318299634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f13fa89f60f14a82993c8a19001049b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeBar: {fileID: 1108415318299634}
 --- !u!114 &114664559887664780
 MonoBehaviour:
   m_ObjectHideFlags: 1

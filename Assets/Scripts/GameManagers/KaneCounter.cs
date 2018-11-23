@@ -18,6 +18,11 @@ namespace GameManagers
         public IObservable<int> KaneCountAsObseravble() { return kaneCount; }
         readonly ISubject<int> kaneCount = new ReplaySubject<int>();
 
+        public IObservable<Unit> NoRemainingKane => KaneCountAsObseravble()
+                .Where(x => x == 0)
+                .First()
+                .AsUnitObservable();
+
         [Inject]
         KaneSpawner kaneSpawner;
 

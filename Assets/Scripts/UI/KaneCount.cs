@@ -24,7 +24,9 @@ namespace UI
 
         private void ShowKaneCount(int kaneCount)
         {
-            kaneCountText.text = $"{kaneCount}/{kaneCounter.initialKaneCount}";
+            var remaining = kaneCounter.initialKaneCount - kaneCount;
+            var all = kaneCounter.initialKaneCount;
+            kaneCountText.text = $"{remaining}/{all}";
         }
     }
 
