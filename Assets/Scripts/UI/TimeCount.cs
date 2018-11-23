@@ -8,7 +8,7 @@ using GameManagers;
 
 namespace UI
 {
-    class PlayingScreen : MonoBehaviour
+    class TimeCount : MonoBehaviour
     {
         [Inject] private TimeCounter timeCounter;
 
