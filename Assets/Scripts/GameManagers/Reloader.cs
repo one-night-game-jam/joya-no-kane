@@ -19,15 +19,13 @@ namespace GameManagers
         [Inject] private ShumokuBehaviour shumoku;
         [Inject] private KaneCounter kaneCounter;
 
-        private async UniTask Start()
+         void Start()
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(waitToGetInput));
-
-            var finished = Observable.Merge(shumoku.Dead, kaneCounter.NoRemainingKane);
-
-            GetComponent<IInputEventProvider>()
-                .MoveDirectionAsObservable()
-                .SkipUntil(finished)
+            Observable.Merge(shumoku.Dead, kaneCounter.NoRemainingKane)
+                .SelectMany(Observable.Timer(TimeSpan.FromSeconds(waitToGetInput)))
+                .Select(_ => GetComponent<IInputEventProvider>().MoveDirectionAsObservable())
+                .Switch()
+                .Skip(1)
                 .Subscribe(_ => SceneManager.LoadScene(sceneName))
                 .AddTo(this);
         }
