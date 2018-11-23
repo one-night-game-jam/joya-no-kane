@@ -28,11 +28,13 @@ namespace Players
 
         void Move(Vector3 v)
         {
+            v.y = 0;
+            v = v.normalized;
             _agent.Move(v * _speed * Time.deltaTime);
 
             if (v.sqrMagnitude > Mathf.Epsilon)
             {
-                transform.rotation = Quaternion.LookRotation(v.normalized);
+                transform.rotation = Quaternion.LookRotation(v);
             }
         }
     }

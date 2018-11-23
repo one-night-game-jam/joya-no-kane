@@ -34,8 +34,15 @@ namespace Players
         {
             var kane = _factory.Create();
             var randomPos = Random.insideUnitCircle * _spawnAreaRadius;
+            var pos = new Vector3(randomPos.x, 0, randomPos.y);
+
+            // 中央を避ける
+            if (pos.sqrMagnitude < 100)
+            {
+                pos *= 10;
+            }
             var randomRotation = Random.rotation;
-            kane.transform.SetPositionAndRotation(new Vector3(randomPos.x, 0, randomPos.y), Quaternion.Euler(0, randomRotation.y, 0));
+            kane.transform.SetPositionAndRotation(pos, Quaternion.Euler(0, randomRotation.y, 0));
             return kane;
         }
     }
