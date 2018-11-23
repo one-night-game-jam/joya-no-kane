@@ -42,6 +42,9 @@ GameObject:
   - component: {fileID: 114182602920869454}
   - component: {fileID: 114248873333584874}
   - component: {fileID: 195838303023078292}
+  - component: {fileID: 114025267923603062}
+  - component: {fileID: 114342049763978870}
+  - component: {fileID: 114722753323337120}
   m_Layer: 0
   m_Name: Kane
   m_TagString: Untagged
@@ -149,6 +152,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1748796253075030}
   m_Mesh: {fileID: 4300000, guid: c0eb797d49168498cb8c1815707835b8, type: 3}
+--- !u!114 &114025267923603062
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061817302818118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b31f2431d6c254addbe2b083586bb76d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114182602920869454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,6 +206,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kane: {fileID: 114791409189480160}
   destroyWait: 1
+--- !u!114 &114342049763978870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061817302818118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea942d763507047129f4ce01943a0cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _core: {fileID: 114025267923603062}
+  _agent: {fileID: 195838303023078292}
+  _speed: 8
+--- !u!114 &114722753323337120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061817302818118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50589272a416f4fa3b39fc526a640e60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114791409189480160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -236,7 +275,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!198 &198432601719130106
 ParticleSystem:
   m_ObjectHideFlags: 1
