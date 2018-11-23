@@ -6,14 +6,16 @@ namespace Players
 {
     public class KaneBehaviour : MonoBehaviour, IHittable
     {
+        private ISubject<bool> isDeadSubject = new BehaviorSubject<bool>(false);
+
         public IObservable<bool> IsDeadAsObservable()
         {
-            return Observable.Return(true);
+            return isDeadSubject;
         }
 
         void IHittable.Hit()
         {
-            Debug.Log("ゴ～ン");
+            isDeadSubject.OnNext(true);
         }
     }
 }
