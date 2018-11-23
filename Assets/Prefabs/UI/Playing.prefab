@@ -54,7 +54,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224059109540790802}
-  - component: {fileID: 114306718928855602}
   m_Layer: 5
   m_Name: Playing
   m_TagString: Untagged
@@ -87,6 +86,7 @@ GameObject:
   - component: {fileID: 224958757004248136}
   - component: {fileID: 222955130583091832}
   - component: {fileID: 114290488272123288}
+  - component: {fileID: 114222777367655788}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -121,6 +121,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114222777367655788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1920026094312324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b8c7be7303c4683a733ca2b2a26d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kaneCountText: {fileID: 114290488272123288}
 --- !u!114 &114275594926833446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -247,19 +259,6 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &114306718928855602
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1510031083859508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93ea52df700754efa9fcf601f9a7d570, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeCountText: {fileID: 114664559887664780}
-  timeCountTextFormat: <mspace=2em>000</mspace>.<mspace=2em>000</mspace>sec
 --- !u!114 &114664559887664780
 MonoBehaviour:
   m_ObjectHideFlags: 1
