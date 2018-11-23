@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4643964611147790}
   - component: {fileID: 114791409189480160}
+  - component: {fileID: 136110807075910474}
   m_Layer: 0
   m_Name: Kane
   m_TagString: Untagged
@@ -37,7 +38,6 @@ GameObject:
   - component: {fileID: 4331224889190294}
   - component: {fileID: 33516832385001716}
   - component: {fileID: 23064056479780886}
-  - component: {fileID: 136610987792160368}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -125,16 +125,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a514d90315df412dbe50f3dfa44f7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &136610987792160368
+--- !u!136 &136110807075910474
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1558763398804908}
+  m_GameObject: {fileID: 1061817302818118}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
