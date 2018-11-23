@@ -29,7 +29,8 @@ namespace GameManagers
                     return this
                         .UpdateAsObservable()
                         .Select(_ => Time.time - beginTime);
-                });
+                })
+                .Share();
         }
     }
 
