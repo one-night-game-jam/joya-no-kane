@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 135386683382529780}
   - component: {fileID: 114218193425334648}
   - component: {fileID: 114981804527519866}
+  - component: {fileID: 114071590854970778}
   m_Layer: 0
   m_Name: Shumoku
   m_TagString: Untagged
@@ -220,6 +221,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31f2431d6c254addbe2b083586bb76d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114071590854970778
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1243192354351910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 114946903390412640}
+  _identifier: 
+  _useSceneContext: 1
+  _context: {fileID: 0}
+  _bindType: 0
 --- !u!114 &114174321124141078
 MonoBehaviour:
   m_ObjectHideFlags: 1
