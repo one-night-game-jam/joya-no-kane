@@ -255,7 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _core: {fileID: 114033062383118176}
   _agent: {fileID: 195304996159737090}
-  _speed: 0.5
+  _speed: 10
 --- !u!114 &114946903390412640
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -28,7 +28,7 @@ namespace Players
 
         void Move(Vector3 v)
         {
-            _agent.Move(v * _speed);
+            _agent.Move(v * _speed * Time.deltaTime);
 
             if (v.sqrMagnitude > Mathf.Epsilon)
             {
