@@ -6,7 +6,7 @@ namespace Players
 
     interface IInputEventProvider
     {
-        IObservable<Vector2> MoveDirectionAsObservable();
+        IObservable<Vector3> MoveDirectionAsObservable();
     }
 
 }
