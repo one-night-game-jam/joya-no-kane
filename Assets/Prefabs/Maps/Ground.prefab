@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576193ffb8f014eaeb45f1d58aab4535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawnAreaRadius: 30
 --- !u!114 &114725640854061208
 MonoBehaviour:
   m_ObjectHideFlags: 1

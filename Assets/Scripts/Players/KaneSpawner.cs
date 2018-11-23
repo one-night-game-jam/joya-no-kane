@@ -3,12 +3,15 @@ using System.Linq;
 using UniRx;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace Players
 {
     public class KaneSpawner : MonoBehaviour
     {
         const int NumberOfBonno = 108;
+
+        [SerializeField] float _spawnAreaRadius;
 
         [Inject] KaneBehaviour.Factory _factory;
 
@@ -24,7 +27,9 @@ namespace Players
         KaneBehaviour Create()
         {
             var kane = _factory.Create();
-
+            var randomPos = Random.insideUnitCircle * _spawnAreaRadius;
+            var randomRotation = Random.rotation;
+            kane.transform.SetPositionAndRotation(new Vector3(randomPos.x, 0, randomPos.y), Quaternion.Euler(0, randomRotation.y, 0));
             return kane;
         }
     }
