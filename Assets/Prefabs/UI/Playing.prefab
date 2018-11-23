@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 224353357919022622}
   - component: {fileID: 222095605360150398}
   - component: {fileID: 114664559887664780}
+  - component: {fileID: 114275594926833446}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -53,6 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224059109540790802}
+  - component: {fileID: 114306718928855602}
   m_Layer: 5
   m_Name: Playing
   m_TagString: Untagged
@@ -119,6 +121,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114275594926833446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1380005902515556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e56b79e9d03064867b7d6472f2b97d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeCountText: {fileID: 114664559887664780}
+  timeCountTextFormat: <mspace=2em>000</mspace>.<mspace=2em>000</mspace>sec
 --- !u!114 &114290488272123288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -232,6 +247,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &114306718928855602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1510031083859508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ea52df700754efa9fcf601f9a7d570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeCountText: {fileID: 114664559887664780}
+  timeCountTextFormat: <mspace=2em>000</mspace>.<mspace=2em>000</mspace>sec
 --- !u!114 &114664559887664780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,7 +279,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 000.000sec
+  m_text: <mspace=2em>000</mspace>.<mspace=2em>000</mspace>sec
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
