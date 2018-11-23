@@ -15,11 +15,17 @@ namespace GameManagers
         public IObservable<float> TimeCountAsObseravble() { return timeCount; }
         readonly ISubject<float> timeCount = new ReplaySubject<float>();
 
-        [Inject]
-        KaneSpawner kaneSpawner;
+        [Inject] KaneSpawner kaneSpawner;
+        [Inject] KaneCounter kaneCounter;
+        [Inject] ShumokuBehaviour shumoku;
 
         void Start()
         {
+            var clear = kaneCounter
+                .KaneCountAsObseravble()
+                .Where(x => x == 0)
+                .First();
+
             kaneSpawner.Spawned
                 .SelectMany(x => x.Select(k => k.IsDeadAsObservable()).Merge())
                 .Where(x => x)
@@ -29,6 +35,7 @@ namespace GameManagers
                 {
                     return this
                         .UpdateAsObservable()
+                        .TakeUntil(clear)
                         .Select(_ => Time.time - beginTime);
                 })
                 .Subscribe(timeCount.OnNext)
