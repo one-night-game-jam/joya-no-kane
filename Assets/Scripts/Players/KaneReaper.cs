@@ -4,15 +4,15 @@ using UnityEngine;
 
 namespace Players
 {
-    [RequireComponent(typeof(KaneBehaviour))]
+    [RequireComponent(typeof(PlayerCore))]
     public class KaneReaper : MonoBehaviour
     {
-        [SerializeField] KaneBehaviour kane;
+        [SerializeField] PlayerCore core;
         [SerializeField] float destroyWait;
 
         private void Start()
         {
-            var kaneDead = kane.IsDeadAsObservable()
+            core.IsDeadAsObservable()
                 .Where(x => x)
                 .Subscribe(_ =>
                 {

@@ -18,9 +18,11 @@ namespace Players
         readonly ISubject<KaneBehaviour[]> _spawned = new AsyncSubject<KaneBehaviour[]>();
         public IObservable<KaneBehaviour[]> Spawned => _spawned;
 
-        public IObservable<Unit> KaneDeadFirst => Spawned
-                .SelectMany(x => x.Select(k => k.IsDeadAsObservable()).Merge())
-                .Where(x => x)
+        public IObservable<bool> KaneDead => Spawned
+                .SelectMany(x => x.Select(k => k.GetComponent<PlayerCore>().IsDeadAsObservable()).Merge())
+                .Where(x => x);
+
+        public IObservable<Unit> KaneDeadFirst => KaneDead
                 .First()
                 .AsUnitObservable();
 

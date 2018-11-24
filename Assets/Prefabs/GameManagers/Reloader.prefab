@@ -64,4 +64,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Scenes/Main
-  waitToGetInput: 3
+  waitToGetInput: 1
