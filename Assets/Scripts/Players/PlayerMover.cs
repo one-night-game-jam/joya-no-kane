@@ -22,6 +22,7 @@ namespace Players
 
             this.UpdateAsObservable()
                 .WithLatestFrom(_core.MoveDirectionAsObservable(), (_, v) => v)
+                .TakeUntil(_core.IsDeadAsObservable().Where(x => x))
                 .Subscribe(Move)
                 .AddTo(this);
         }

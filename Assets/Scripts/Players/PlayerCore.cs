@@ -6,7 +6,7 @@ namespace Players
 {
     public class PlayerCore : MonoBehaviour
     {
-        private ISubject<bool> isDeadSubject = new BehaviorSubject<bool>(false);
+        private ISubject<bool> isDeadSubject = new Subject<bool>();
 
         public IObservable<bool> IsDeadAsObservable()
         {
@@ -27,8 +27,7 @@ namespace Players
 
         public IObservable<Vector3> MoveDirectionAsObservable()
         {
-            return input.MoveDirectionAsObservable()
-                .TakeUntil(isDeadSubject.Skip(1));
+            return input.MoveDirectionAsObservable();
         }
     }
 }
