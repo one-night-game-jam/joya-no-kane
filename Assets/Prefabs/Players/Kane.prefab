@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ce524e61a81403eb2dfb84aa0c8024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kane: {fileID: 114791409189480160}
+  core: {fileID: 114025267923603062}
   deadEffect: {fileID: 198432601719130106}
 --- !u!114 &114187676694974758
 MonoBehaviour:
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87533704bff9f4c1ca9f9d6092936c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kane: {fileID: 114791409189480160}
+  core: {fileID: 114025267923603062}
   destroyWait: 1
 --- !u!114 &114342049763978870
 MonoBehaviour:
@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a514d90315df412dbe50f3dfa44f7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  core: {fileID: 114025267923603062}
 --- !u!136 &136110807075910474
 CapsuleCollider:
   m_ObjectHideFlags: 1

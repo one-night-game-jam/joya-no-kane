@@ -18,13 +18,8 @@ namespace GameManagers
 
         void Start()
         {
-            kaneSpawner.Spawned
-                .SelectMany(x => x.Select(k => k.IsDeadAsObservable()).Merge())
-                .Where(x => x)
-                .Subscribe(_ =>
-                {
-                    audioSource.Play();
-                })
+            kaneSpawner.KaneDead
+                .Subscribe(_ => audioSource.Play())
                 .AddTo(this);
         }
     }

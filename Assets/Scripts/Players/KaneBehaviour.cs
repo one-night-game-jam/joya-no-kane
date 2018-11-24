@@ -7,16 +7,12 @@ namespace Players
 {
     public class KaneBehaviour : MonoBehaviour, IHittable
     {
-        private ISubject<bool> isDeadSubject = new BehaviorSubject<bool>(false);
-
-        public IObservable<bool> IsDeadAsObservable()
-        {
-            return isDeadSubject;
-        }
+        [SerializeField]
+        private PlayerCore core;
 
         void IHittable.Hit()
         {
-            isDeadSubject.OnNext(true);
+            core.Die();
         }
 
         public class Factory : Factory<KaneBehaviour>

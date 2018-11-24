@@ -4,16 +4,16 @@ using UnityEngine;
 
 namespace Players
 {
-    [RequireComponent(typeof(KaneBehaviour))]
+    [RequireComponent(typeof(PlayerCore))]
     public class KaneDeadEffectEmitter : MonoBehaviour
     {
-        [SerializeField] KaneBehaviour kane;
+        [SerializeField] PlayerCore core;
         [SerializeField] ParticleSystem deadEffect;
 
         private void Start()
         {
             deadEffect.Pause();
-            kane.IsDeadAsObservable()
+            core.IsDeadAsObservable()
                 .Where(x => x)
                 .Subscribe(_ =>
                 {
