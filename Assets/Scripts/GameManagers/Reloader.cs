@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 using Zenject;
 
 using Players;
+using Players.InputImpls;
 
 namespace GameManagers
 {
@@ -19,11 +20,11 @@ namespace GameManagers
         [Inject] private ShumokuBehaviour shumoku;
         [Inject] private KaneCounter kaneCounter;
 
-         void Start()
+        void Start()
         {
             Observable.Merge(shumoku.Dead, kaneCounter.NoRemainingKane)
                 .SelectMany(Observable.Timer(TimeSpan.FromSeconds(waitToGetInput)))
-                .Select(_ => GetComponent<IInputEventProvider>().MoveDirectionAsObservable())
+                .Select(_ => new MergedInputEventProvider(GetComponents<IInputEventProvider>()).MoveDirectionAsObservable())
                 .Switch()
                 .Skip(1)
                 .Subscribe(_ => SceneManager.LoadScene(sceneName))
