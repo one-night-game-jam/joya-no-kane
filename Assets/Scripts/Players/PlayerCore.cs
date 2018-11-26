@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Players.InputImpls;
+using System;
 using UniRx;
 using UnityEngine;
 
@@ -22,7 +23,7 @@ namespace Players
 
         void Awake()
         {
-            input = GetComponent<IInputEventProvider>();
+            input = new MergedInputEventProvider(GetComponents<IInputEventProvider>());
         }
 
         public IObservable<Vector3> MoveDirectionAsObservable()
