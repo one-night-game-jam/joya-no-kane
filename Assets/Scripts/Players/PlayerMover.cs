@@ -30,7 +30,11 @@ namespace Players
         void Move(Vector3 v)
         {
             v.y = 0;
-            v = v.normalized;
+            if (v.sqrMagnitude > 1.0F)
+            {
+                v.Normalize();
+            }
+
             _agent.Move(v * _speed * Time.deltaTime);
 
             if (v.sqrMagnitude > Mathf.Epsilon)

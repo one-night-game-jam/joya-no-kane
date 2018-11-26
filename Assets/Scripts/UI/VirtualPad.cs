@@ -37,10 +37,6 @@ namespace UI
                 {
                     var delta = e.position - e.pressPosition;
                     delta /= _knobClearance;
-                    if (delta.sqrMagnitude > 1.0F)
-                    {
-                        delta.Normalize();
-                    }
                     return new Vector3(delta.x, 0, delta.y);
                 })
                 .Merge(resetMovement)
@@ -56,7 +52,16 @@ namespace UI
                 });
 
             _moveDirection
-                .Select(v => new Vector3(v.x, v.z, v.y) * _knobClearance)
+                .Select(v =>
+                {
+                    v.Set(v.x, v.z, 0);
+                    if (v.sqrMagnitude > 1.0F)
+                    {
+                        v.Normalize();
+                    }
+                    v *= _knobClearance;
+                    return v;
+                })
                 .WithLatestFrom(knobOrigin, (position, downPosition) => downPosition + position)
                 .Subscribe(v => _knob.rectTransform.position = v)
                 .AddTo(this);
